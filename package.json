@@ -1,0 +1,31 @@
+{
+  "name": "personal-project-backend",
+  "version": "1.0.0",
+  "description": "Backend for the projects database application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alluballu1/Personal-Project-Backend.git"
+  },
+  "author": "Alex Porri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alluballu1/Personal-Project-Backend/issues"
+  },
+  "homepage": "https://github.com/alluballu1/Personal-Project-Backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.7",
+    "mongoose-unique-validator": "^3.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
