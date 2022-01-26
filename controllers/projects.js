@@ -34,18 +34,21 @@ projectRouter.post("/", userExtractor, async (req, res, next) => {
   }
 });
 projectRouter.delete("/", userExtractor, async (req, res, next) => {
-    try {
-        const body = req.body
-        const decodedToken = req.user
-        const deleted = await Project.findOneAndDelete(body)
-    
-        console.log(body, decodedToken)
-        res.json(deleted).status(200)
+  try {
+    const body = req.body;
+    const decodedToken = req.user;
+    const user = await User.findById(decodedToken.id);
+    if (!user) {
+      res.json("Invalid token").status(400);
     }
-    catch (err) {
-        next(err)
-    }
-
+    const deleted = await Project.findOneAndDelete(body);
+    const index = user.projects.indexOf(deleted.id);
+    user.projects.splice(index, 1);
+    user.save();
+    res.json("Project deleted.").status(200);
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = projectRouter;
