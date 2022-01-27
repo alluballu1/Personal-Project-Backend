@@ -8,6 +8,7 @@ const cors = require("cors");
 const middleware = require("./utils/middleware");
 const projectRouter = require("./controllers/projects");
 const loginRouter = require("./controllers/login");
+
 logger.info("Connecting to ", process.env.MONGODB_URL);
 
 mongoose
@@ -19,8 +20,6 @@ app.use(cors());
 app.use(express.static("build"));
 app.use(express.json());
 
-
-
 app.use(middleware.tokenExtractor)
 app.use("/api/users", userRouter)
 app.use("/api/projects", projectRouter)
@@ -30,4 +29,3 @@ app.use(middleware.errorHandler);
 
 
 module.exports = app;
-
