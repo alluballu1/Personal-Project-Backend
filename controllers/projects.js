@@ -1,5 +1,4 @@
 const projectRouter = require("express").Router();
-const { response } = require("express");
 const Project = require("../models/project");
 const User = require("../models/user");
 const { userExtractor } = require("../utils/middleware");
@@ -35,7 +34,7 @@ projectRouter.post("/", userExtractor, async (req, res, next) => {
 });
 projectRouter.delete("/", userExtractor, async (req, res, next) => {
   try {
-    const body = req.body;
+    const body = req.body.project;
     const decodedToken = req.user;
     const user = await User.findById(decodedToken.id);
     if (!user) {
@@ -48,6 +47,24 @@ projectRouter.delete("/", userExtractor, async (req, res, next) => {
     res.json("Project deleted.").status(200);
   } catch (err) {
     next(err);
+  }
+});
+
+projectRouter.put("/", userExtractor, async (req, res, next) => {
+  try {
+    const body = req.body;
+    const decodedToken = req.user;
+    const user = await User.findById(decodedToken.id);
+    if (!user) {
+      res.json("Invalid token").status(400);
+    }
+    await Project.findByIdAndUpdate(body.id, body, { new: true }).then((result) =>
+    {console.log("success")
+      res.status(200).json(result.toJSON()).end()
+    }
+    );
+  } catch (err) {
+    res.json(err).status(401);
   }
 });
 
