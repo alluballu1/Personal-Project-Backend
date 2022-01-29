@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "./static/css/main.b84b2bc8.css",
-    "main.js": "./static/js/main.3f84b663.js",
+    "main.js": "./static/js/main.839fa354.js",
     "static/media/wallpapertip_blue-pattern-wallpaper_1172740.jpg": "./static/media/wallpapertip_blue-pattern-wallpaper_1172740.6d9af7c65d7d945f6600.jpg",
     "index.html": "./index.html",
     "main.b84b2bc8.css.map": "./static/css/main.b84b2bc8.css.map",
-    "main.3f84b663.js.map": "./static/js/main.3f84b663.js.map"
+    "main.839fa354.js.map": "./static/js/main.839fa354.js.map"
   },
   "entrypoints": [
     "static/css/main.b84b2bc8.css",
-    "static/js/main.3f84b663.js"
+    "static/js/main.839fa354.js"
   ]
 }
