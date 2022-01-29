@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "build",
+			"path": "..\\Personal_Project_Front\\build"
+		},
+		{
+			"name": "Personal-Project-Backend",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
